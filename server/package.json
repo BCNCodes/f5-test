@@ -7,13 +7,14 @@
   "scripts": {
     "lint": "eslint --fix --ext *.js",
     "start": "npm run lint; node server",
-    "start:dev": "nodemon server",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "start:dev": "nodemon -r dotenv/config server",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --setupFiles dotenv/config"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@shelf/jest-mongodb": "^2.2.0",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",

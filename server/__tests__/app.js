@@ -11,7 +11,6 @@ describe('app', () => {
 			const response = await request(app).get('/');
 			expect(response.status).toBe(200);
 		});
-
 	});
 });
 
