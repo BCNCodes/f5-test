@@ -7,3 +7,10 @@ export const findAllImages = async () => {
     conn.close();
     return images;
 };
+
+export const insertOneImage = async (image) => {
+    const conn = await connection(config);
+    const result = await conn.db().collection("images").insertOne(image);
+    conn.close();
+    return result;
+};

@@ -16,9 +16,20 @@ describe('app', () => {
                 const response = await request(app).get('/');
                 expect(response.body[0]).toBeInstanceOf(Object);
             });
-
+        });
+        describe('POST', () => {
+            // test('should return 201', async () => {
+            //     const response = await request(app)
+            //         .post('/')
+            //         .send({name: 'prueba'});
+        // });
+        test('should return id of saved image', async () => {
+            const response = await request(app)
+            .post('/')
+            .send({image:{name: 'image.test'}});
+                expect(response.statusCode).toBe(201);
+                expect(response.body.insertedId).toBeDefined();
+            });
         });
     });
 });
-
-

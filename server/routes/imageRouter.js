@@ -6,6 +6,7 @@ import { Router } from "express";
 const router = Router();
 
 router.route("/")
-  .get(imageController.getImages);
+    .get(imageController.getImages)
+    .post(imageController.postImage);
 
 export default router;
