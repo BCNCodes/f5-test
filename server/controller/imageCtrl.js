@@ -15,11 +15,19 @@ const imageController = {
     /* should save an image */
     postImage: async (req, res) => {
         try {
-            const image = {name: req.body.image.name};
-            
-            const result = await insertOneImage(image);
-            console.log(result);
-            res.status(201).json(result);
+
+            if(!req.file){
+                res.status(400).json({error:"No file uploaded"});
+            }else{
+                const {originalname} = req.file;
+
+                // req.body.filename = 'test';
+                const image = {name: originalname};
+
+                const result = await insertOneImage(image);
+                console.log(result);
+                res.status(201).json(result);
+            }
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
