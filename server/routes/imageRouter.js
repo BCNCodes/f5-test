@@ -9,4 +9,7 @@ router.route("/")
     .get(imageController.getImages)
     .post(uploadFile.single('file'),imageController.postImage);
 
+router.route("/:id")
+    .put(imageController.updateImage);
+
 export default router;

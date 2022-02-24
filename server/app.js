@@ -3,5 +3,5 @@ import imageRouter from './routes/imageRouter.js';
 const app = express();
 
 app.use(express.json());
-app.use('/', imageRouter);
+app.use('/image', imageRouter);
 export default app;

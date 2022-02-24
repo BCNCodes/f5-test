@@ -1,5 +1,5 @@
 // import images from '../data/images.js';
-import { findAllImages,insertOneImage } from '../model/imageDA0.js';
+import { findAllImages,insertOneImage,updateImage } from '../model/imageDA0.js';
 
 const imageController = {
     /* should return an array of images */
@@ -16,18 +16,33 @@ const imageController = {
     postImage: async (req, res) => {
         try {
 
-            if(!req.file){
+            if(!req.file || !req.body.name){
                 res.status(400).json({error:"No file uploaded"});
-            }else{
-                const {originalname} = req.file;
-
-                // req.body.filename = 'test';
-                const image = {name: originalname};
-
-                const result = await insertOneImage(image);
-                console.log(result);
-                res.status(201).json(result);
             }
+            const {filename} = req.file;
+            const {name} = req.body;
+
+            const image = {name,filename};
+
+            const result = await insertOneImage(image);
+            res.status(201).json(result);
+
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    },
+    updateImage: async (req,res) => {
+        try {
+            if(!req.body.name){
+                res.status(400).json({error:"No name"});
+            }
+            const id = req.params.id;
+            const name = req.body.name;
+            const result = await updateImage({id,name});
+            res.json(result);
+
+
+
         } catch (error) {
             res.status(500).json({ error: error.message });
         }

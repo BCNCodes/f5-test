@@ -1,5 +1,6 @@
 import connection from "../database/mongoManager.js";
 import {config} from "../config.js";
+import { ObjectId } from "mongodb";
 
 export const findAllImages = async () => {
     const conn = await connection(config);
@@ -14,3 +15,13 @@ export const insertOneImage = async (image) => {
     conn.close();
     return result;
 };
+
+export const updateImage = async (image) => {
+    const {id,name}=image;
+    const _id = new ObjectId(id);
+    const conn = await connection(config);
+    const result = await conn.db().collection("images").updateOne({_id}, {$set:{name}});
+    conn.close();
+    return result;
+};
+
