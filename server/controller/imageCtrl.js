@@ -1,5 +1,5 @@
 // import images from '../data/images.js';
-import { findAllImages,insertOneImage,updateImage } from '../model/imageDA0.js';
+import { findAllImages,insertOneImage,updateImage,deleteOneImage } from '../model/imageDA0.js';
 
 const imageController = {
     /* should return an array of images */
@@ -43,6 +43,15 @@ const imageController = {
 
 
 
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    },
+    removeImage: async (req,res)=>{
+        try {
+            const id = req.params.id;
+            const result = await deleteOneImage(id);
+            res.json(result);
         } catch (error) {
             res.status(500).json({ error: error.message });
         }

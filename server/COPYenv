@@ -1,2 +1,0 @@
-MONGO_URL=mongodb+srv://f5:1234@mean-stack-3.7ufox.mongodb.net/test?retryWrites=true&w=majority
-MONGO_DB_NAME=test
