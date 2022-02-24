@@ -1,5 +1,4 @@
 import { Router } from "express";
-// import multer from "multer";
 import imageController from "../controller/imageCtrl.js";
 import { uploadFile } from "../helper/fileUploader.js";
 import { removeImageFile } from "../middleware/removeImageFile.js";
@@ -13,5 +12,6 @@ router.route("/")
 router.route("/:id")
     .put(imageController.updateImage)
     .delete(removeImageFile,imageController.removeImage);
+
 
 export default router;
