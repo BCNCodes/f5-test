@@ -2,3 +2,5 @@
 precode
 */.env
 client/src/.env
+node_modules
+.env
