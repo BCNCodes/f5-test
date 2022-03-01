@@ -1,9 +1,10 @@
 import axios from "axios";
-
+//${process.env.REACT_APP_API_URL}/ || `http://localhost:3456/api/image`
 const baseUrl = `${process.env.REACT_APP_API_URL}/api/image` || `http://localhost:3456/api/image`
 const serviceImage = {
 
     async getAll():Promise<Image[]> {
+        console.log('api_url',baseUrl);
         const response = await axios.get(baseUrl)
         return response.data
     },

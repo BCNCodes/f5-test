@@ -86,7 +86,9 @@ export default function App() {
       try {
         const images = await serviceImage.getAll();
         const imagesToShow = images.map(image => {
+          // image.url = `${server}/images/${image.filename}`
           image.url = `${server}/images/${image.filename}`
+          console.log('api_url',image.url);
           return image;
         })
         setImages(imagesToShow);
