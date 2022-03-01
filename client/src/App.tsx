@@ -78,7 +78,7 @@ export default function App() {
     }
   };
 
-  const server = process.env.REACT_APP_SERVER_URL;
+  const server = process.env.REACT_APP_API_URL || 'http://localhost:3456/api';
 
   //function to get all images
   const hook = () => {

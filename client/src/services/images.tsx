@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = `http://localhost:3456/api/image`
+const baseUrl = `${process.env.REACT_APP_API_URL}/image` || `http://localhost:3456/api/image`
 const serviceImage = {
 
     async getAll():Promise<Image[]> {
