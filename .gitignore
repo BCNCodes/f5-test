@@ -1,3 +1,4 @@
 */node_modules
 precode
 */.env
+client/src/.env
