@@ -13,17 +13,26 @@ const serviceImage = {
     //     return response.data
     // },
 
-    async save(Image:Image):Promise<Image>{
-        const response = await axios.post(baseUrl,Image)
+    async save(image:FormData):Promise<any>{
+        const response = await axios.post(baseUrl,image,{
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
         return response.data
     },
 
-    async update(id:string,changes:any):Promise<Image>{
-        const response = await axios.patch(baseUrl.concat('/',id),changes)
-        return response.data
+    async update(image:any):Promise<null>{
+        console.log('update',image);
+        if(image._id){
+            const response = await axios.put(baseUrl.concat('/',image._id),image)
+            return response.data
+        }
+        return null
     },
 
     async delete(id:string):Promise<Image>{
+        console.log('id',id)
         const response = await axios.delete(baseUrl.concat('/',id))
         return response.data
     }

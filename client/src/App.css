@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 .App {
   text-align: center;
 }
@@ -14,7 +16,11 @@
 }
 
 .App-header {
-  background-color: #66FFFF;
+  background: rgb(102,255,255);
+  background: linear-gradient(283deg, rgba(102,255,255,1) 26%, rgba(246,242,211,1) 42%);
+
+  /* background-color: #66FFFF; */
+  filter: sepia(2%);
   min-height: 40vh;
   display: flex;
   flex-direction: column;
@@ -24,8 +30,21 @@
   color: #666;
 }
 
+.App-body {
+
+}
+
 img{
-  height:200px
+  min-height: 240px;
+  max-height:300px;
+  max-width: calc(100vw/2);
+}
+.App-modal{
+  display: block;
+  min-height: 300px;
+  max-height:300px;
+  max-width: calc(100vw/2);
+  width: 100%;
 }
 
 .App-link {
