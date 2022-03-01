@@ -28,7 +28,7 @@ export const updateImage = async (image) => {
     const {id,name}=image;
     const _id = new ObjectId(id);
     const conn = await connection(config);
-    const result = await conn.db().collection("images").updateOne({_id}, {$set:{name}});
+    const result = await conn.db().collection("images").findOneAndUpdate({_id}, {$set:{name}}, {returnOriginal:false});
     conn.close();
     return result;
 };
