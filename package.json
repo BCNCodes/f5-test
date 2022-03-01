@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint --fix --ext *.js",
-    "start": "npm run lint; node server",
+    "start": "node -r dotenv/config server",
     "start:dev": "nodemon -r dotenv/config server",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --setupFiles dotenv/config"
   },
