@@ -4,5 +4,5 @@ const app = express();
 
 app.use(express.json());
 app.use(express.static('public'));
-app.use('api/image', imageRouter);
+app.use('/api/image', imageRouter);
 export default app;
